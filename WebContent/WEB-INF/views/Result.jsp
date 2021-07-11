@@ -15,9 +15,11 @@
     <c:if test="${mails != null}">
       <c:forEach items="${mails}" var = "mail">
         <hr>
-        <p>${mail.getSubject()}</p>
-        <p>${mail.getFrom()}</p>
-        <p>${mail.getContent()}</p>
+        <div>
+        	<p>${mail.getSubject()}</p>
+        	<p>${mail.getFrom()}</p>
+        	<p>${mail.getContent()}</p>
+        </div>
       </c:forEach>
     </c:if>
 </body>

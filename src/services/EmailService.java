@@ -41,14 +41,16 @@ public class EmailService {
         Session session = Session.getInstance(properties, auth);
  
         // creates a new e-mail message
-        Message msg = new MimeMessage(session);
+        MimeMessage msg = new MimeMessage(session);
  
         msg.setFrom(new InternetAddress(userName));
         InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
-        msg.setSubject(subject);
+        msg.setSubject(subject, "UTF-8");
         msg.setSentDate(new Date());
-        msg.setText(message);
+        msg.setText(message, "UTF-8");
+        System.out.println(subject);
+        System.out.println(message);
  
         // sends the e-mail
         Transport.send(msg);

@@ -44,7 +44,7 @@ public class EmailCheck {
       System.out.println("messages.length---" + messages.length);
       
 
-      for (int i = 0, n = 10; i < n; i++) {
+      for (int i = 0, n = 50; i < n; i++) {
          Message message = messages[i];
          String subject = message.getSubject();
          Address from = message.getFrom()[0];

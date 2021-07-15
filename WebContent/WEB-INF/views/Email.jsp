@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Send email</title>
+  <title>Email</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/all.css">
 </head>
@@ -42,7 +46,7 @@
         </div>
 
         <div class="nav-list">
-          <a href="#"><i class="fas fa-inbox"></i><span class="header">Inbox</span><span class="count"></span></a>
+          <a href="#"><i class="fas fa-inbox"></i><span class="header">Inbox</span><span class="count">1,123</span></a>
           <a href="#"><i class="fas fa-star"></i>Starred</a>
           <a href="#"><i class="fas fa-clock"></i>Snoozed</a>
           <a href="#"><i class="fas fa-paper-plane"></i>Sent</a>
@@ -75,21 +79,44 @@
       </div>
 
       <!-- Main Content / mails list -->
-      <div class="main-content-send-email">
+      <div class="main-content">
+
         <div class="content-nav">
-            <h2>SEND EMAIL</h2>
+          <div class="left-icons">
+            <i class="fas fa-long-arrow-alt-left"></i>
+            <i class="fas fa-trash"></i>
+            <i class="fas fa-envelope-open"></i>
+            <i class="fas fa-redo-alt"></i>
+            <i class="fas fa-clock"></i> 
+            <!--<i class="fas fa-ellipsis-v"></i>-->        
+            
+          </div>
+
+          <div class="right-icons">
+            <span class="order">1 0f 2,828</span>
+            <i class="fas fa-chevron-left"></i>
+            <i class="fas fa-chevron-right"></i>
+          </div>
         </div>
 
         <div class="mail-box">
-            <form action="SendEmail" method="post" enctype="text/plain">
-                <label for="email">To: </label>
-                <input type="email" id="email" name="recipient">
-                <label for="title">Title: </label>
-                <input type="text" id="title" name="subject">
-                <label for="content">Content</label>
-                <textarea id="content" name="content" placeholder="Write something.." style="height:200px"></textarea>
-                <input type="submit" value="Send">
-            </form>
+          <div class="mail-title">
+            <h2>${subject}</h2>
+          </div>
+          <div class="mail-content">
+            <div class="sender">
+              <i class="fas fa-user"></i>
+              <span class="sender-email">
+                ${from}</span>
+            </div>
+            <div class="mail-content-inside">
+              <p>${content}</p>
+            </div>
+            <div class="mail-action">
+              <a href=""><i class="fas fa-reply"></i></a>
+              <a href=""><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
         </div>
                  
     </div>

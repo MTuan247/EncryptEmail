@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import services.EmailService;
+import services.EmailSend;
  
 /**
  * A servlet that takes message details from user and send it as a new e-mail
@@ -21,7 +21,7 @@ import services.EmailService;
  */
 @SuppressWarnings("serial")
 @WebServlet("/SendEmail")
-public class SendEmail extends HttpServlet {
+public class SendEmailController extends HttpServlet {
     private String host;
     private String port;
     private String user;
@@ -30,8 +30,8 @@ public class SendEmail extends HttpServlet {
     public void init() {
         // reads SMTP server setting from web.xml file
         ServletContext context = getServletContext();
-        host = context.getInitParameter("host");
-        port = context.getInitParameter("port");
+        host = "smtp.gmail.com";
+        port = "587";
         user = context.getInitParameter("user");
         pass = context.getInitParameter("pass");
     }
@@ -55,7 +55,7 @@ public class SendEmail extends HttpServlet {
         String resultMessage = "";
  
         try {
-            EmailService.sendEmail(host, port, user, pass, recipient, subject,
+            EmailSend.sendEmail(host, port, user, pass, recipient, subject,
                     content);
             resultMessage = "The e-mail was sent successfully";
         } catch (Exception ex) {
@@ -63,7 +63,7 @@ public class SendEmail extends HttpServlet {
             resultMessage = "There were an error: " + ex.getMessage();
         } finally {
             request.setAttribute("Message", resultMessage);
-            getServletContext().getRequestDispatcher("/WEB-INF/views/Result.jsp").forward(
+            getServletContext().getRequestDispatcher("/WEB-INF/views/CheckMail.jsp").forward(
                     request, response);
         }
     }

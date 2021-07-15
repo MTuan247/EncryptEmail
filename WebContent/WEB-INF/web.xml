@@ -23,9 +23,6 @@
     </context-param>
   
   <welcome-file-list>
-  	<welcome-file>views/SendEmail.jsp</welcome-file>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
+  	<welcome-file>Login</welcome-file>
   </welcome-file-list>
 </web-app>

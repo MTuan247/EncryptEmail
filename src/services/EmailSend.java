@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMessage;
  * @author www.codejava.net
  *
  */
-public class EmailService {
+public class EmailSend {
     public static void sendEmail(String host, String port,
             final String userName, final String password, String toAddress,
             String subject, String message) throws AddressException,

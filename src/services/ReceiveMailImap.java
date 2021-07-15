@@ -16,8 +16,7 @@ public class ReceiveMailImap {
   // http://www.mikedesjardins.net/content/2008/03/using-javamail-to-read-and-extract/
   //
 
-  public static List<Mail> check(String host, String storeType, String user,
-	      String password) throws MessagingException, IOException {
+  public static List<Mail> check( String user, String password) throws MessagingException, IOException {
 	  
     Folder folder = null;
     Store store = null;

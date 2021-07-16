@@ -41,6 +41,8 @@ public class CheckEmailController extends HttpServlet {
 		} catch (MessagingException | IOException e) {
 			e.printStackTrace();
 		}
+		
+		session.setAttribute("mails", mails);
 
         request.setAttribute("mails", mails);
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/CheckMail.jsp");

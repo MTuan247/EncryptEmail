@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,14 +83,14 @@
         </div>
 
         <div class="mail-box">
-            <form action="SendEmail" method="post" enctype="text/plain">
+            <form action="SendEmail" method="post">
                 <label for="email">To: </label>
-                <input type="email" id="email" name="recipient">
+                <input type="email" id="email" name="recipient" />
                 <label for="title">Title: </label>
-                <input type="text" id="title" name="subject">
-                <label for="content">Content</label>
+                <input type="text" id="title" name="subject" />
+                <label for="content">Content:</label>
                 <textarea id="content" name="content" placeholder="Write something.." style="height:200px"></textarea>
-                <input type="submit" value="Send">
+                <input type="submit" value="Send" />
             </form>
         </div>
                  

@@ -44,7 +44,7 @@
       <div class="left-nav">
         <div class="compose">
           <div class="btn">
-            <a href="EncryptEmail/SendEmail"><img src="./img/compose.png" alt="create">
+            <a href="SendEmail"><img src="./img/compose.png" alt="create">
             <p>Compose</p></a>
           </div>
         </div>
@@ -113,25 +113,28 @@
           <!-- mailing lists -->
           <!-- 1st Mail -->
           <c:if test="${mails != null}">
-          	<c:forEach items="${mails}" var = "mail">
-		          <a href="" class="mail-list link">
+          	<c:forEach items="${mails}" var = "mail" varStatus="loop" >
+		          <a href="/EncryptEmail/Mail?mail=${loop.index}" class="mail-list link">
 		            <div class="mail-list">
+		            
 		              <div class="mail-icons-left">
 		                <input type="checkbox" name="mail" id="mail">
 		                <i class="far fa-star"></i>
 		                <i class="far fa-bookmark"></i>
 		                <h4 class="title">${mail.getSubject()}</h4>
-		              
 		              </div>
+		              
 		              <div class="mail-content">
 		                <p class="subject">${mail.getContent()}</span></p>
 		              </div>
+		              
 		              <div class="mail-icons-right">
 		                <i class="fas fa-archive"></i>
 		                <i class="fas fa-trash"></i>
 		                <i class="fas fa-envelope-open"></i>
 		                <i class="fas fa-clock"></i>                                         
 		              </div>
+		              
 		            </div>
 		          </a>
         	</c:forEach>

@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import models.Account;
 import services.EmailSend;
  
 /**
@@ -24,16 +26,11 @@ import services.EmailSend;
 public class SendEmailController extends HttpServlet {
     private String host;
     private String port;
-    private String user;
-    private String pass;
  
     public void init() {
         // reads SMTP server setting from web.xml file
-        ServletContext context = getServletContext();
         host = "smtp.gmail.com";
         port = "587";
-        user = context.getInitParameter("user");
-        pass = context.getInitParameter("pass");
     }
     
     protected void doGet(HttpServletRequest request,
@@ -51,6 +48,17 @@ public class SendEmailController extends HttpServlet {
         String recipient = request.getParameter("recipient");
         String subject = request.getParameter("subject");
         String content = request.getParameter("content");
+        
+        System.out.println("Recipent: " + recipient);
+        System.out.println("Subject: " + subject);
+        System.out.println("Content: " + content);
+        
+        HttpSession session = request.getSession();
+        
+        Account account = (Account) session.getAttribute("user");
+        
+        String user = account.getEmail();
+        String pass = account.getApplicationPassword();
  
         String resultMessage = "";
  

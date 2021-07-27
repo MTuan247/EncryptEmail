@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import db.ConnectionUtils;
 import models.Account;
+import security.BCryptHash;
 import services.DbServices;
 
 @WebServlet("/Login")
@@ -24,13 +25,20 @@ public class LoginController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Account user = (Account)request.getSession().getAttribute("user");
+		if(user == null) {
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Login.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect(request.getContextPath() + "/CheckEmail"); 
+		}
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Login.jsp");
         dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userName = request.getParameter("userName");
+		String email = request.getParameter("userName");
 		String password = request.getParameter("password");
 		
 		Account user = null;
@@ -38,17 +46,17 @@ public class LoginController extends HttpServlet {
 		boolean hasError = false;
 		String errorString = null;
 		
-		if (userName == null || password == null || userName.length() == 0 || password.length() == 0) {
+		if (email == null || password == null || email.length() == 0 || password.length() == 0) {
 			hasError = true;
-			errorString = "Yêu cầu nhập tên tài khoản và mật khẩu!";
+			errorString = "Email and Password are required!";
 		} else {
 			Connection conn = ConnectionUtils.getConnection();
 			
-			user = DbServices.findUser(conn, userName, password);
+			user = DbServices.findUser(conn, email);
 			
-			if (user == null) {
+			if (user == null || BCryptHash.checkPass(password, user.getPassword()) == false) {
 				hasError = true;
-				errorString = "Tên đăng nhập hoặc mật khẩu không đúng";
+				errorString = "Email or Password is wrong!";
 			}
 			
 			

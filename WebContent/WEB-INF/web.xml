@@ -25,4 +25,15 @@
   <welcome-file-list>
   	<welcome-file>Login</welcome-file>
   </welcome-file-list>
+
+<filter>
+		<filter-name>userFilter</filter-name>
+		<filter-class>filter.UserFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>userFilter</filter-name>
+		<url-pattern>/Mail/*</url-pattern>
+		<url-pattern>/SendEmail/*</url-pattern>
+		<url-pattern>/CheckEmail/*</url-pattern>
+	</filter-mapping>
 </web-app>

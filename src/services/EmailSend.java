@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Properties;
  
 import javax.mail.Authenticator;
+import javax.mail.Flags;
+import javax.mail.Flags.Flag;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -13,25 +15,20 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
  
-/**
- * A utility class for sending e-mail messages
- * @author www.codejava.net
- *
- */
+
 public class EmailSend {
     public static void sendEmail(String host, String port,
             final String userName, final String password, String toAddress,
             String subject, String message) throws AddressException,
             MessagingException {
  
-        // sets SMTP server properties
+
         Properties properties = new Properties();
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.port", port);
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
- 
-        // creates a new session with an authenticator
+
         Authenticator auth = new Authenticator() {
             public PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(userName, password);
@@ -40,7 +37,7 @@ public class EmailSend {
  
         Session session = Session.getInstance(properties, auth);
  
-        // creates a new e-mail message
+
         MimeMessage msg = new MimeMessage(session);
  
         msg.setFrom(new InternetAddress(userName));
@@ -49,10 +46,8 @@ public class EmailSend {
         msg.setSubject(subject, "UTF-8");
         msg.setSentDate(new Date());
         msg.setText(message, "UTF-8");
-        System.out.println(subject);
-        System.out.println(message);
  
-        // sends the e-mail
+
         Transport.send(msg);
  
     }

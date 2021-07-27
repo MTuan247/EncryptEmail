@@ -25,7 +25,7 @@ public class EmailCheck {
 	  List<Mail> mails = new ArrayList<Mail>();
       try {
 
-      //create properties field
+
       Properties properties = new Properties();
 
       properties.put("mail.pop3.host", host);
@@ -33,16 +33,16 @@ public class EmailCheck {
       properties.put("mail.pop3.starttls.enable", "true");
       Session emailSession = Session.getDefaultInstance(properties);
   
-      //create the POP3 store object and connect with the pop server
+
       Store store = emailSession.getStore("pop3s");
 
       store.connect(host, user, password);
 
-      //create the folder object and open it
+
       Folder emailFolder = store.getFolder("INBOX");
       emailFolder.open(Folder.READ_ONLY);
 
-      // retrieve the messages from the folder in an array and print it
+
       Message[] messages = emailFolder.getMessages();
       System.out.println("messages.length---" + messages.length);
       
@@ -64,7 +64,7 @@ public class EmailCheck {
 
       }
 
-      //close the store and folder objects
+
       emailFolder.close(false);
       store.close();
 

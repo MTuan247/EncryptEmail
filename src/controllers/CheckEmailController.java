@@ -31,19 +31,16 @@ public class CheckEmailController extends HttpServlet {
 		Account user = (Account) session.getAttribute("user");
 		String username = user.getEmail();
 		String password = user.getApplicationPassword();
-		
-		System.out.println(username);
-		System.out.println(password);
 
         List<Mail> mails = null;
-		try {
+        
+    	try {
 			mails = ReceiveMailImap.check(username, password);
-		} catch (MessagingException | IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+    	session.setAttribute("mails", mails);
 		
-		session.setAttribute("mails", mails);
-
         request.setAttribute("mails", mails);
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/CheckMail.jsp");
         dispatcher.forward(request, response);

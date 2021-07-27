@@ -1,4 +1,10 @@
 /* Stle reset */
+
+:root {
+  --success-color: #01b075;
+  --warning-color: #ff6900;
+  --error-color: #f65454;
+}
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +20,7 @@
   src: url(../assets/Roboto-Regular.ttf);
 }
 body {
-  font-family: "Google-font"'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
   background: #fff;
@@ -122,6 +128,7 @@ ul {
   border: none;
   outline: none;
   background: #f1f3f4;
+  vertical-align: middle;
 }
 
 #main-container {
@@ -160,10 +167,7 @@ ul {
 .left-nav .compose {
   margin: 1rem 0.5rem 0 0;
   padding-left: 0.5rem;
-  height: 12%;
-  border-bottom: 1px solid #e5e5e5;
-  box-shadow: 0 2px 2px -1px rgba(0,0,0,.1), 0 2px 2px -1px rgba(0,0,0,.1);
-  
+  height: 12%; 
 }
 
 .left-nav .compose img {
@@ -198,9 +202,6 @@ ul {
   line-height: 1.6rem;
 }
 
-.left-nav .nav-list:hover {
-  overflow-y: scroll;
-}
 
 .left-nav .nav-list a {
   color: #555;
@@ -532,8 +533,7 @@ i:hover, .mail-box .mail-header .content:hover {
 }
   
 .mail-box .mail-list:hover {
-  border: 1px solid rgba(0,0,0,.1);
-  box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  background-color: #ebf4ff;
   z-index: 1;
   cursor: pointer;
 }
@@ -562,6 +562,8 @@ i:hover, .mail-box .mail-header .content:hover {
 
 .mail-box .mail-list .title {
   margin-right: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .main-content .content-footer {

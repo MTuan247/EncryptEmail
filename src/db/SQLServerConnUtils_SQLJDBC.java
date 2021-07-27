@@ -9,11 +9,11 @@ public class SQLServerConnUtils_SQLJDBC {
     public static Connection getSQLServerConnection_SQLJDBC() //
             throws ClassNotFoundException, SQLException {
  
-        String hostName = "localhost";
-        String sqlInstanceName = "ADMIN-PC";
+        String hostName = "DESKTOP-67E139F";
+        String sqlInstanceName = "SQLEXPRESS";
         String database = "EncryptEmail";
         String userName = "sa";
-        String password = "";
+        String password = "123456789";
  
         return getSQLServerConnection_SQLJDBC(hostName, sqlInstanceName, database, userName, password);
     }
@@ -25,7 +25,7 @@ public class SQLServerConnUtils_SQLJDBC {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
  
         
-        String connectionURL = "jdbc:sqlserver://" + hostName + ":1433" //
+        String connectionURL = "jdbc:sqlserver://" + hostName + ":57604" //
                 + ";instance=" + sqlInstanceName + ";databaseName=" + database;
  
         Connection conn = DriverManager.getConnection(connectionURL, userName, password);
